@@ -192,6 +192,30 @@
       cursor: none;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .btn-resume {
+      padding: 0.9rem 2.2rem;
+      background: transparent;
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+      transition: all 0.3s;
+      cursor: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-resume:hover {
+      background: var(--accent);
+      color: var(--bg);
+      box-shadow: var(--glow);
+      transform: translateY(-2px);
+    }
 
     .hero-stats {
       display: flex; gap: 3rem; margin-top: 5rem;
@@ -518,6 +542,7 @@
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="#contact" class="btn-outline">Get In Touch</a>
+      <a href="assets/resume.pdf" download="Aniket_Sutar_Resume.pdf" class="btn-resume" onclick="forceDownload(event)">⬇ Download Resume</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
@@ -838,6 +863,16 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+      function forceDownload(e) {
+  e.preventDefault();
+  const link = document.createElement('a');
+  link.href = 'assets/resume.pdf';
+  link.download = 'Aniket_Sutar_Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
   </script>
 </body>
 </html>
